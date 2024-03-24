@@ -16,11 +16,12 @@ import { Button } from "../ui/button";
 import { FaPlus } from "react-icons/fa6";
 import { Label } from "@radix-ui/react-label";
 import { Input } from "../ui/input";
+import FormComponent from "../formComponents/Form.component";
 
 const navComponent = () => {
 	return (
 		<div className="">
-			<Sheet >
+			<Sheet>
 				<div className=" w-full border-b     h-20   bg-white  px-52 ">
 					<div className="flex  pt-4   justify-between items-center ">
 						<h1 className="   text-xl tracking-wide  ">FNB</h1>
@@ -42,30 +43,13 @@ const navComponent = () => {
 
 				<SheetContent>
 					<SheetHeader>
-						<SheetTitle>Edit profile</SheetTitle>
+						<SheetTitle className="">Contact Information</SheetTitle>
 						<SheetDescription>
-							Make changes to your profile here. Click save when you're done.
+							You Can Create Contact Infomation Here ...
 						</SheetDescription>
 					</SheetHeader>
-					<div className="grid gap-4 py-4">
-						<div className="grid grid-cols-4 items-center gap-4">
-							<Label htmlFor="name" className="text-right">
-								Name
-							</Label>
-							<Input id="name" value="Pedro Duarte" className="col-span-3" />
-						</div>
-						<div className="grid grid-cols-4 items-center gap-4">
-							<Label htmlFor="username" className="text-right">
-								Username
-							</Label>
-							<Input id="username" value="@peduarte" className="col-span-3" />
-						</div>
-					</div>
-					<SheetFooter>
-						<SheetClose asChild>
-							<Button type="submit">Save changes</Button>
-						</SheetClose>
-					</SheetFooter>
+
+					<FormComponent />
 				</SheetContent>
 			</Sheet>
 		</div>

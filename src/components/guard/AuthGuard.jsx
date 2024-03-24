@@ -8,7 +8,7 @@ const AuthGuard = ({ check, children, token }) => {
 	const { data, isError, isLoading } = useGetProfileQuery();
 
 	const nav = useNavigate();
-	console.log(data, isError, isLoading);
+	
 	useEffect(() => {
 		if (check) {
 			localStorage.setItem("token", JSON.stringify(token));
@@ -22,7 +22,17 @@ const AuthGuard = ({ check, children, token }) => {
 		}
 	}, [check, data, isError]);
 
-	return <div>{isLoading ? <h1>Loading</h1> : <>{children}</>}</div>;
+	return (
+		<div>
+			{isLoading ? (
+				<h1 className="w-[50%] h-screen flex items-center justify-center m-auto">
+					Loading
+				</h1>
+			) : (
+				<>{children}</>
+			)}
+		</div>
+	);
 };
 
 export default AuthGuard;

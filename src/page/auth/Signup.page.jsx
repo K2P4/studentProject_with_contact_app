@@ -104,7 +104,7 @@ const SignupPage = () => {
 											onChange={handleChange}
 											onBlur={handleBlur}
 											value={values.name}
-											className="mt-1"
+											className="mt-1 focus:border-0 "
 											name="name"
 											type="text"
 											id="name"
@@ -124,7 +124,7 @@ const SignupPage = () => {
 											onChange={handleChange}
 											onBlur={handleBlur}
 											value={values.email}
-											className="mt-1"
+											className="mt-1 focus:border-0"
 											name="email"
 											type="email"
 											id="email"
@@ -147,7 +147,7 @@ const SignupPage = () => {
 											onChange={handleChange}
 											onBlur={handleBlur}
 											value={values.password}
-											className="mt-1"
+											className="mt-1 focus:border-0"
 											name="password"
 											type="password"
 											id="password"
@@ -170,7 +170,7 @@ const SignupPage = () => {
 											onChange={handleChange}
 											onBlur={handleBlur}
 											value={values.password_confirmation}
-											className="mt-1"
+											className="mt-1 focus:border-0"
 											name="password_confirmation"
 											type="password"
 											id="password_confirmation"

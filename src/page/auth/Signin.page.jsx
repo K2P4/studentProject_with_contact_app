@@ -93,7 +93,7 @@ const SigninPage = () => {
 												onChange={handleChange}
 												onBlur={handleBlur}
 												value={values.email}
-												className="mt-1 text-sm text-gray-700"
+												className="mt-1 focus:border-0 text-sm text-gray-700"
 												name="email"
 												type="email"
 												id="email"
@@ -116,7 +116,7 @@ const SigninPage = () => {
 												onChange={handleChange}
 												onBlur={handleBlur}
 												value={values.password}
-												className="mt-1 text-gray-700 text-sm"
+												className="mt-1 focus:border-0 text-gray-700 text-sm"
 												name="password"
 												type="password"
 												id="password"
