@@ -2,23 +2,21 @@
 
 import { Apiservice } from "../Apiservice";
 
-const contactendPoints = Apiservice.injectEndpoints({
+const contactEndPoint = Apiservice.injectEndpoints({
 	endpoints: (builder) => ({
-		createContact: builder.mutation({
+		create: builder.mutation({
 			query: (arg) => ({
-				url: "/contact",
+				url: "contact",
 				method: "POST",
 				body: arg,
 			}),
+			invalidatesTags: ["contact"],
 		}),
-		getContact: builder.query({
-			query: () => ({
-				url: "/contact",
-				method: "GET",
-			}),
+		get: builder.query({
+			query: () => "contact",
+			providesTags: ["contact"],
 		}),
 	}),
 });
 
-export const { useCreateContactMutation, useGetContactQuery } =
-	contactendPoints;
+export const { useCreateMutation, useGetQuery } = contactEndPoint;

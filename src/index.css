@@ -1,3 +1,11 @@
+/** @format */
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@100..900&family=Sora:wght@100..800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.header-font {
+	font-family: "Sora", sans-serif;
+}
