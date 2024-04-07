@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import * as yup from "yup";
 import { Formik, Form, ErrorMessage } from "formik";
+
 import { Input } from "../../../components/ui/input";
 import { Label } from "../../../components/ui/label";
 import { Button } from "../../../components/ui/button";
@@ -12,6 +13,8 @@ import { SheetClose } from "../../../components/ui/sheet";
 import { useCreateMutation } from "../../../store/services/endpoints/contact.endpoint";
 
 const FormTool = () => {
+	const CloseRef = useRef();
+
 	const [fun, { data, isError, isLoading }] = useCreateMutation();
 	const initialValue = {
 		name: "",
@@ -39,7 +42,7 @@ const FormTool = () => {
 
 	const handleSubmit = async (value, action) => {
 		await fun(value);
-		action.reset();
+		CloseRef.current.click();
 	};
 
 	return (
@@ -120,19 +123,20 @@ const FormTool = () => {
 								</div>
 							</div>
 							<div className="flex items-center gap-3">
-								<Button
-									variant="outline"
-									disabled={isSubmitting}
-									type="button"
-									className="w-full text-basic border-basic">
-									Cancel
-								</Button>
+								<SheetClose ref={CloseRef} className="w-full">
+									<Button
+										variant="outline"
+										disabled={isSubmitting}
+										type="button"
+										className="w-full text-basic border-basic">
+										Cancel
+									</Button>
+								</SheetClose>
 
 								<Button
 									disabled={isSubmitting}
 									type="submit"
 									className="text-white  w-full active:scale-95  bg-basic hover:bg-blue-500 ">
-								
 									{isSubmitting ? (
 										<Loader2 className=" mr-2 h-4 w-4 animate-spin" />
 									) : (

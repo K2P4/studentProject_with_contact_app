@@ -6,6 +6,7 @@ import {
 	Sheet,
 	SheetContent,
 	SheetDescription,
+	SheetClose,
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
