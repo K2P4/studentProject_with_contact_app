@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useEffect } from "react";
-import { EmptyLottie, Navcomponent, TableComponent } from "../../components";
+import { EmptyLottie, Navcomponent } from "../../components";
 import {
 	Sheet,
 	SheetContent,
@@ -15,6 +15,7 @@ import { useGetQuery } from "../../store/services/endpoints/contact.endpoint";
 import FormTool from "./tool/Form.tool";
 import { FaPlus } from "react-icons/fa6";
 import { Button } from "../../components/ui/button";
+import DataTableTool from "./tool/DataTable.tool";
 
 const HomePage = () => {
 	const { data } = useGetQuery();
@@ -33,7 +34,7 @@ const HomePage = () => {
 				</div>
 
 				<Sheet>
-					<div className="flex  w-full  px-56 justify-end mt-3 mx-auto   ">
+					<div className="flex  w-full  px-40 justify-end mt-3 mx-auto   ">
 						<SheetTrigger>
 							<Button className=" hover:bg-blue-600 flex items-center gap-1 text-white bg-basic">
 								<FaPlus />
@@ -61,8 +62,8 @@ const HomePage = () => {
 				)}
 
 				{data?.contacts?.data.length > 0 && (
-					<div className="">
-						<TableComponent />
+					<div className="w-[80%] mx-auto mt-10">
+						<DataTableTool apiData={data?.contacts?.data} />
 					</div>
 				)}
 			</div>
