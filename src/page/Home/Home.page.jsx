@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { EmptyLottie, Navcomponent } from "../../components";
 import {
 	Sheet,
@@ -10,7 +10,7 @@ import {
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
-} from "@/components/ui/sheet";
+} from "../../components/ui/sheet";
 import AuthGuard from "../../components/guard/AuthGuard";
 import { useGetQuery } from "../../store/services/endpoints/contact.endpoint";
 import FormTool from "./tool/Form.tool";
@@ -20,21 +20,26 @@ import DataTableTool from "./tool/DataTable.tool";
 
 const HomePage = () => {
 	const { data } = useGetQuery();
+	const [editData, setEditData] = useState({ edit: false, data: null });
 
-	console.log(data);
+	const handleEdit = (id) => {
+		const finder = data?.contacts?.data.find((item) => item.id == id);
+		setEditData({ edit: true, data: finder });
+	};
 
-	useEffect(() => {
-		console.log(data);
-	}, [data]);
+	const handleClose = () => {
+		setEditData({ edit: false, data: null });
+	};
+
 
 	return (
 		<AuthGuard>
-			<div className="w-screen h-screen bg-[#fcfcfd]">
-				<div className="">
-					<Navcomponent />
-				</div>
+			<Sheet>
+				<div className="w-screen h-screen bg-[#fcfcfd]">
+					<div className="">
+						<Navcomponent />
+					</div>
 
-				<Sheet>
 					<div className="flex  w-full  px-40 justify-end mt-3 mx-auto   ">
 						<SheetTrigger>
 							<Button className=" hover:bg-blue-600 flex items-center gap-1 text-white bg-basic">
@@ -44,7 +49,7 @@ const HomePage = () => {
 						</SheetTrigger>
 					</div>
 
-					<SheetContent>
+					<SheetContent onOverlayClick={handleClose} onClose={handleClose}>
 						<SheetHeader>
 							<SheetTitle className="">Contact Information</SheetTitle>
 							<SheetDescription>
@@ -52,22 +57,25 @@ const HomePage = () => {
 							</SheetDescription>
 						</SheetHeader>
 
-						<FormTool />
+						<FormTool handleClose={handleClose} editData={editData} />
 					</SheetContent>
-				</Sheet>
 
-				{data?.contacts?.data.length == 0 && (
-					<div className="">
-						<EmptyLottie />
-					</div>
-				)}
+					{data?.contacts?.data.length == 0 && (
+						<div className="">
+							<EmptyLottie />
+						</div>
+					)}
 
-				{data?.contacts?.data.length > 0 && (
-					<div className="w-[80%] mx-auto mt-10">
-						<DataTableTool apiData={data?.contacts?.data} />
-					</div>
-				)}
-			</div>
+					{data?.contacts?.data.length > 0 && (
+						<div className="w-[80%] mx-auto mt-10">
+							<DataTableTool
+								handleEdit={handleEdit}
+								apiData={data?.contacts?.data}
+							/>
+						</div>
+					)}
+				</div>
+			</Sheet>
 		</AuthGuard>
 	);
 };

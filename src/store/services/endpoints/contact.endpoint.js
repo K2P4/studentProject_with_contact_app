@@ -16,7 +16,14 @@ const contactEndPoint = Apiservice.injectEndpoints({
 			query: () => "contact",
 			providesTags: ["contact"],
 		}),
+		delete: builder.mutation({
+			query: (arg) => ({
+				url: `contact/${arg}`,
+				method: "DELETE",
+			}),
+			invalidatesTags: ["contact"],
+		}),
 	}),
 });
 
-export const { useCreateMutation, useGetQuery } = contactEndPoint;
+export const { useCreateMutation, useGetQuery,useDeleteMutation} = contactEndPoint;

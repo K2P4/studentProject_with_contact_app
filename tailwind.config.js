@@ -13,7 +13,11 @@ export default {
 			},
 			colors: {
 				basic: "#008DDA",
+				iconColor:"#31363F"
 			},
+			
+        
+      
 		},
 	},
 	plugins: [],

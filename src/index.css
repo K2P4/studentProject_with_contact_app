@@ -6,6 +6,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.header-font {
+body{
 	font-family: "Sora", sans-serif;
 }

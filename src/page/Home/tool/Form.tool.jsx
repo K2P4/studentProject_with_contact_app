@@ -12,15 +12,17 @@ import { Loader2 } from "lucide-react";
 import { SheetClose } from "../../../components/ui/sheet";
 import { useCreateMutation } from "../../../store/services/endpoints/contact.endpoint";
 
-const FormTool = () => {
+const FormTool = ({ editData, handleClose }) => {
 	const CloseRef = useRef();
 
 	const [fun, { data, isError, isLoading }] = useCreateMutation();
+	
+
 	const initialValue = {
-		name: "",
-		email: "",
-		phone: "",
-		address: "",
+		name: editData?.data?.name || "",
+		email: editData?.data?.email || "",
+		phone: editData?.data?.phone || "",
+		address: editData?.data?.address || "",
 	};
 
 	const validationSchema = yup.object({
@@ -68,7 +70,7 @@ const FormTool = () => {
 										id="name"
 									/>
 									<ErrorMessage
-										className="text-danger text-sm"
+										className="text-red-500 text-sm"
 										component={"p"}
 										name="name"
 									/>
@@ -84,7 +86,7 @@ const FormTool = () => {
 										id="email"
 									/>
 									<ErrorMessage
-										className="text-danger text-sm"
+										className="text-red-500 text-sm"
 										component={"p"}
 										name="email"
 									/>
@@ -100,7 +102,7 @@ const FormTool = () => {
 										id="phone"
 									/>
 									<ErrorMessage
-										className="text-danger text-sm"
+										className="text-red-500 text-sm"
 										component={"p"}
 										name="phone"
 									/>
@@ -116,7 +118,7 @@ const FormTool = () => {
 										id="address"
 									/>
 									<ErrorMessage
-										className="text-danger text-sm"
+										className="text-red-500 text-sm"
 										component={"p"}
 										name="address"
 									/>
@@ -128,6 +130,7 @@ const FormTool = () => {
 										variant="outline"
 										disabled={isSubmitting}
 										type="button"
+										onClick={handleClose}
 										className="w-full text-basic border-basic">
 										Cancel
 									</Button>
