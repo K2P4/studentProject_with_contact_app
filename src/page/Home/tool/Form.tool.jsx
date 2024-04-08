@@ -10,13 +10,16 @@ import { Button } from "../../../components/ui/button";
 
 import { Loader2 } from "lucide-react";
 import { SheetClose } from "../../../components/ui/sheet";
-import { useCreateMutation } from "../../../store/services/endpoints/contact.endpoint";
+import {
+	useCreateMutation,
+	useUpdateMutation,
+} from "../../../store/services/endpoints/contact.endpoint";
 
 const FormTool = ({ editData, handleClose }) => {
 	const CloseRef = useRef();
 
 	const [fun, { data, isError, isLoading }] = useCreateMutation();
-	
+	const [editFun, updateData] = useUpdateMutation();
 
 	const initialValue = {
 		name: editData?.data?.name || "",
@@ -43,7 +46,12 @@ const FormTool = ({ editData, handleClose }) => {
 	});
 
 	const handleSubmit = async (value, action) => {
-		await fun(value);
+		if (editData?.data) {
+			await editFun({ id: editData.data?.id, ...value });
+		} else {
+			await fun(value);
+		}
+
 		CloseRef.current.click();
 	};
 
@@ -143,7 +151,7 @@ const FormTool = ({ editData, handleClose }) => {
 									{isSubmitting ? (
 										<Loader2 className=" mr-2 h-4 w-4 animate-spin" />
 									) : (
-										<> Create</>
+										<> {editData?.data ? "Update" : "Create"}</>
 									)}
 								</Button>
 							</div>

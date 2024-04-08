@@ -31,6 +31,7 @@ const HomePage = () => {
 		setEditData({ edit: false, data: null });
 	};
 
+	
 
 	return (
 		<AuthGuard>
@@ -49,11 +50,16 @@ const HomePage = () => {
 						</SheetTrigger>
 					</div>
 
-					<SheetContent onOverlayClick={handleClose} onClose={handleClose}>
+					<SheetContent
+						onClick={handleClose}
+						onMouseOut={handleClose}
+						onClose={handleClose}>
 						<SheetHeader>
 							<SheetTitle className="">Contact Information</SheetTitle>
 							<SheetDescription>
-								You Can Create Contact Infomation Here ...
+								{editData?.data
+									? "You Can Update Contact Infomation Here ..."
+									: "You Can Create Contact Infomation Here ..."}
 							</SheetDescription>
 						</SheetHeader>
 

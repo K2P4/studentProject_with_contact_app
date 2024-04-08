@@ -82,7 +82,7 @@ const DataTableTool = ({ apiData, handleEdit }) => {
 						{apiData.map((i) => (
 							<TableRow
 								key={i.id}
-								className="bg-[#FCFCFD] duration-500 group hover:bg-slate-100 ">
+								className="bg-[#FCFCFD] border-0 duration-500 group hover:bg-gray-100  ">
 								<TableCell>{i.id}</TableCell>
 								<TableCell>{i.name}</TableCell>
 								<TableCell className="text-gray-400">{i.email}</TableCell>
@@ -96,12 +96,12 @@ const DataTableTool = ({ apiData, handleEdit }) => {
 								<TableCell className="text-xl space-x-5">
 									<SheetTrigger>
 										<button onClick={handleEdit.bind(null, i.id)}>
-											<MdOutlineModeEdit />
+											<MdOutlineModeEdit  className="active:scale-95" />
 										</button>
 									</SheetTrigger>
 
 									<button onClick={handleDelete.bind(null, i.id)}>
-										<FaRegTrashAlt className=" text-red-500 " />
+										<FaRegTrashAlt className=" text-red-500  active:scale-95" />
 									</button>
 								</TableCell>
 							</TableRow>
