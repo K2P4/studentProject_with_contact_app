@@ -22,7 +22,7 @@ const SignupPage = () => {
 	const [fun, data] = useSignupMutation();
 	const nav = useNavigate();
 
-	console.log(fun, data);
+	
 
 	const initailValue = {
 		name: "",
@@ -31,14 +31,9 @@ const SignupPage = () => {
 		password_confirmation: "",
 	};
 
-	// useEffect(() => {
-	// 	if (data) {
-	// 		nav("/");
-	// 	}
-	// }, [data]);
 
 	const handleSubmit = async (value) => {
-		console.log(value);
+	
 		await fun(value);
 		if (data.isSuccess) {
 			nav("/");
@@ -74,13 +69,13 @@ const SignupPage = () => {
 	});
 
 	return (
-		<div className="w-3/5 h-screen   flex flex-col items-center  justify-center m-auto">
-			<Card className=" w-3/6 p-4">
-				<CardHeader className="flex flex-row  justify-between items-center ">
-					<CardTitle className="text-lg  font-medium font-sans ">
+		<div className="sm:w-3/5 h-screen   flex flex-col items-center  justify-center m-auto">
+			<Card className=" sm:w-3/6 sm:p-4 px-2 py-4">
+				<CardHeader className="flex flex-row  items-start   gap-6 sm:gap-0 sm:justify-between sm:items-center ">
+					<CardTitle className="sm:text-lg text-md  font-semibold  sm:font-medium font-sans ">
 						Sign Up{" "}
 					</CardTitle>
-					<CardDescription className="text-sm  tracking-wide text-basic">
+					<CardDescription className="sm:text-sm  text-xs tracking-wide text-basic">
 						{" "}
 						<Link to="/">Already Have An Account</Link>
 					</CardDescription>
@@ -95,7 +90,7 @@ const SignupPage = () => {
 						onSubmit={handleSubmit}>
 						{({ isSubmitting, handleChange, handleBlur, values }) => (
 							<>
-								<Form className="flex flex-col gap-3">
+								<Form className="flex flex-col gap-4 sm:gap-3">
 									<div className="">
 										<Label className="text-gray-500 text-md " htmlFor="name">
 											Username{" "}

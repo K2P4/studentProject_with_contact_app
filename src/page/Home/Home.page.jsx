@@ -41,9 +41,9 @@ const HomePage = () => {
 						<Navcomponent />
 					</div>
 
-					<div className="flex  w-full  px-40 justify-end mt-3 mx-auto   ">
+					<div className="flex  w-full  px-4 sm:px-40 justify-end mt-3 mx-auto   ">
 						<SheetTrigger>
-							<Button className=" hover:bg-blue-600 flex items-center gap-1 text-white bg-basic">
+							<Button className=" hover:bg-blue-600 flex items-center  active:scale-95 gap-3 sm:gap-1 text-white bg-basic">
 								<FaPlus />
 								Create Contact
 							</Button>
@@ -73,7 +73,7 @@ const HomePage = () => {
 					)}
 
 					{data?.contacts?.data.length > 0 && (
-						<div className="w-[80%] mx-auto mt-10">
+						<div className="sm:w-[80%] w-[95%] mx-auto mt-16 sm:mt-10">
 							<DataTableTool
 								handleEdit={handleEdit}
 								apiData={data?.contacts?.data}

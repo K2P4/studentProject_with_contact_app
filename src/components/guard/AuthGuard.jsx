@@ -8,7 +8,10 @@ const AuthGuard = ({ check, children, token }) => {
 	const { data, isError, isLoading } = useGetProfileQuery();
 
 	const nav = useNavigate();
+	console.log(data, isError);
+
 	
+
 	useEffect(() => {
 		if (check) {
 			localStorage.setItem("token", JSON.stringify(token));
@@ -17,8 +20,6 @@ const AuthGuard = ({ check, children, token }) => {
 			nav("/");
 		} else if (data) {
 			nav("/home");
-		} else if (token) {
-			av("/");
 		}
 	}, [check, data, isError]);
 

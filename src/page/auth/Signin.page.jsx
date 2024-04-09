@@ -24,8 +24,6 @@ const SigninPage = () => {
 
 	const nav = useNavigate();
 
-	console.log(data, data?.data?.token);
-
 	const initailValue = {
 		email: "",
 		password: "",
@@ -38,12 +36,12 @@ const SigninPage = () => {
 	useEffect(() => {
 		if (data?.data?.success) {
 			nav("/home");
+		} else {
+			nav("/");
 		}
 	}, [data]);
 
 	const handleSubmit = async (value, action) => {
-		console.log(value);
-
 		await fun(value);
 		action.reset();
 	};
@@ -61,15 +59,15 @@ const SigninPage = () => {
 
 	return (
 		<AuthGuard check={data?.data?.success} token={data?.data?.token}>
-			<div className="w-3/5 h-screen   flex flex-col items-center  justify-center m-auto">
-				<Card className=" w-3/6 p-4">
-					<CardHeader className="flex flex-row  justify-between items-center ">
-						<CardTitle className="text-lg  font-medium font-sans ">
+			<div className="sm:w-3/5 h-screen  w-full  flex flex-col items-center  justify-center m-auto">
+				<Card className=" sm:w-3/6 sm:p-4 px-2 p-3 ">
+					<CardHeader className="flex flex-row  items-start  gap-10 sm:gap-0 sm:justify-between sm:items-center ">
+						<CardTitle className="sm:text-lg   font-semibold  text-md sm:font-medium font-sans ">
 							Sign In{" "}
 						</CardTitle>
 						<CardDescription
 							onClick={handleSignUp}
-							className="text-sm   active:scale-90 text-basic">
+							className="sm:text-sm  text-xs   active:scale-90 text-basic">
 							{" "}
 							Don't Have An Account{" "}
 						</CardDescription>
