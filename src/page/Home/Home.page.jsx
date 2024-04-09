@@ -41,9 +41,9 @@ const HomePage = () => {
 						<Navcomponent />
 					</div>
 
-					<div className="flex  w-full  px-4 sm:px-40 justify-end mt-3 mx-auto   ">
+					<div className="flex  w-full    mt-5 justify-center  sm:px-40 sm:justify-end sm:mt-3 mx-auto   ">
 						<SheetTrigger>
-							<Button className=" hover:bg-blue-600 flex items-center  active:scale-95 gap-3 sm:gap-1 text-white bg-basic">
+							<Button className=" hover:bg-blue-600  sm:px-3   px-20 text-center flex items-center  active:scale-95 gap-3 sm:gap-1 text-white bg-basic">
 								<FaPlus />
 								Create Contact
 							</Button>
@@ -55,12 +55,15 @@ const HomePage = () => {
 						onMouseOut={handleClose}
 						onClose={handleClose}>
 						<SheetHeader>
-							<SheetTitle className="">Contact Information</SheetTitle>
-							<SheetDescription>
+							<SheetTitle className="text-sm text-left sm:text-base">
+								Contact Information
+							</SheetTitle>
+							<SheetDescription className="text-xs text-left sm:text-1xl">
 								{editData?.data
 									? "You Can Update Contact Infomation Here ..."
 									: "You Can Create Contact Infomation Here ..."}
 							</SheetDescription>
+							
 						</SheetHeader>
 
 						<FormTool handleClose={handleClose} editData={editData} />

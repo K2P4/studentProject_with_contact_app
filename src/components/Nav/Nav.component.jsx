@@ -42,7 +42,7 @@ const navComponent = () => {
 
 	return (
 		<div className="">
-			<div className=" w-full border-b    h-16   sm:h-20   bg-white   px-4   sm:px-36 ">
+			<div className=" w-full border-b      h-16   sm:h-20   bg-white   px-4   sm:px-36 ">
 				<div className="flex  pt-4   justify-between items-center ">
 					<h1 className=" text-xl tracking-wide  font-semibold ">FNB</h1>
 
