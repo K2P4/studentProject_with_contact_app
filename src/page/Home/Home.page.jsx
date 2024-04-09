@@ -58,7 +58,7 @@ const HomePage = () => {
 							<SheetTitle className="text-sm text-left sm:text-base">
 								Contact Information
 							</SheetTitle>
-							<SheetDescription className="text-xs text-left sm:text-1xl">
+							<SheetDescription className="text-xs my-2 sm:my-0 text-left sm:text-1xl">
 								{editData?.data
 									? "You Can Update Contact Infomation Here ..."
 									: "You Can Create Contact Infomation Here ..."}

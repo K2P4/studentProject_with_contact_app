@@ -132,14 +132,14 @@ const FormTool = ({ editData, handleClose }) => {
 									/>
 								</div>
 							</div>
-							<div className="flex items-center gap-3">
+							<div className="flex items-center  gap-2 sm:gap-3">
 								<SheetClose ref={CloseRef} className="w-full">
 									<Button
 										variant="outline"
 										disabled={isSubmitting}
 										type="button"
 										onClick={handleClose}
-										className="w-full text-basic border-basic">
+										className="w-full text-basic hover:text-blue-500 border-basic">
 										Cancel
 									</Button>
 								</SheetClose>
