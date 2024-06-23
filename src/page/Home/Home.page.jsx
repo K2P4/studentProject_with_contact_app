@@ -62,7 +62,9 @@ const HomePage = () => {
 
 						<div className="flex  w-full    mt-5 justify-center  sm:px-40 sm:justify-end sm:mt-3 mx-auto   ">
 							<SheetTrigger>
-								<Button className=" hover:bg-blue-600  sm:px-3   px-20 text-center flex items-center  active:scale-95 gap-3 sm:gap-1 text-white bg-basic">
+								<Button
+									onClick={handleClose}
+									className=" hover:bg-blue-600  sm:px-3   px-20 text-center flex items-center  active:scale-95 gap-3 sm:gap-1 text-white bg-basic">
 									<FaPlus />
 									Create Contact
 								</Button>
@@ -70,7 +72,7 @@ const HomePage = () => {
 						</div>
 
 						<div className="w-full">
-							<SheetContent onOverlayClick={handleClose} onClose={handleClose}>
+							<SheetContent  onClose={handleClose}>
 								<SheetHeader>
 									<SheetTitle className="text-sm text-left sm:text-base">
 										Contact Information
