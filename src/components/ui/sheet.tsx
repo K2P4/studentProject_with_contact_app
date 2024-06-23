@@ -16,14 +16,14 @@ const SheetClose = SheetPrimitive.Close;
 const SheetPortal = SheetPrimitive.Portal;
 
 const SheetOverlay = React.forwardRef(
-	({ className, onMouseOut, ...props }, ref) => (
+	({ className, onOverlayClick, ...props }, ref) => (
 		<SheetPrimitive.Overlay
 			className={cn(
 				"fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
 				className
 			)}
 			{...props}
-			onMouseOut={onMouseOut}
+			onClick={onOverlayClick}
 			ref={ref}
 		/>
 	)
@@ -55,11 +55,11 @@ interface SheetContentProps
 
 const SheetContent = React.forwardRef(
 	(
-		{ side = "right", className, children, onClose, onMouseOut, ...props },
+		{ side = "right", onOverlayClick, className, children, onClose, ...props },
 		ref
 	) => (
 		<SheetPortal>
-			<SheetOverlay onMouseOut={onMouseOut} />
+			<SheetOverlay onOverlayClick={onOverlayClick} />
 			<SheetPrimitive.Content
 				ref={ref}
 				className={cn(sheetVariants({ side }), className)}
@@ -99,7 +99,6 @@ const SheetFooter = ({
 			"flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
 			className
 		)}
-		
 		{...props}
 	/>
 );
