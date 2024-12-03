@@ -10,7 +10,7 @@ const authEndpoints = Apiservice.injectEndpoints({
 				method: "POST",
 				body: arg,
 			}),
-			invalidatesTags: ["contact"],
+			invalidatesTags: ["auth"],
 		}),
 
 		Signup: builder.mutation({
@@ -19,7 +19,7 @@ const authEndpoints = Apiservice.injectEndpoints({
 				method: "POST",
 				body: arg,
 			}),
-			invalidatesTags: ["contact"],
+			invalidatesTags: ["auth"],
 		}),
 
 		getProfile: builder.query({
@@ -34,7 +34,7 @@ const authEndpoints = Apiservice.injectEndpoints({
 				url: "/user-logout",
 				method: "POST",
 			}),
-			invalidatesTags: ["contact"],
+			invalidatesTags: ["auth"],
 		}),
 	}),
 });
