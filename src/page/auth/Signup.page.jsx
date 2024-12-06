@@ -35,11 +35,9 @@ const SignupPage = () => {
 	const handleSubmit = async (value) => {
 	
 		await fun(value);
-		if (data) {
+		if (data.isSuccess) {
 			nav("/");
 		}
-
-		toast.success("Register Successfully");
 	};
 
 	const validationSchema = yup.object({
