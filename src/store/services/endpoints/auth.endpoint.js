@@ -4,13 +4,11 @@ import { Apiservice } from "../Apiservice";
 
 const authEndpoints = Apiservice.injectEndpoints({
 	endpoints: (builder) => ({
-		Signin: builder.mutation({
-			query: (arg) => ({
-				url: "/login",
-				method: "POST",
-				body: arg,
+		Signin: builder.query({
+			query: () => ({
+				url: "/user",
+				method: "GET",
 			}),
-			invalidatesTags: ["auth"],
 		}),
 
 		Signup: builder.mutation({
@@ -24,14 +22,14 @@ const authEndpoints = Apiservice.injectEndpoints({
 
 		getProfile: builder.query({
 			query: () => ({
-				url: "/user-profile",
+				url: "/user",
 				method: "GET",
 			}),
 		}),
 
 		logout: builder.mutation({
 			query: () => ({
-				url: "/user-logout",
+				url: "/user",
 				method: "POST",
 			}),
 			invalidatesTags: ["auth"],
@@ -40,7 +38,7 @@ const authEndpoints = Apiservice.injectEndpoints({
 });
 
 export const {
-	useSigninMutation,
+	useSigninQuery,
 	useSignupMutation,
 	useGetProfileQuery,
 	useLogoutMutation,
