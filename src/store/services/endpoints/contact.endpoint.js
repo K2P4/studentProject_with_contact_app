@@ -6,30 +6,30 @@ const contactEndPoint = Apiservice.injectEndpoints({
 	endpoints: (builder) => ({
 		create: builder.mutation({
 			query: (arg) => ({
-				url: "contact",
+				url: "contacts",
 				method: "POST",
 				body: arg,
 			}),
-			invalidatesTags: ["contact"],
+			invalidatesTags: ["contacts"],
 		}),
 		get: builder.query({
-			query: () => "contact",
-			providesTags: ["contact"],
+			query: () => "contacts",
+			providesTags: ["contacts"],
 		}),
 		delete: builder.mutation({
 			query: (arg) => ({
-				url: `contact/${arg}`,
+				url: `contacts/${arg}`,
 				method: "DELETE",
 			}),
-			invalidatesTags: ["contact"],
+			invalidatesTags: ["contacts"],
 		}),
 		update: builder.mutation({
 			query: (arg) => ({
-				url: `contact/${arg.id}`,
+				url: `contacts/${arg.id}`,
 				method: "PUT",
 				body: arg,
 			}),
-			invalidatesTags: ["contact"],
+			invalidatesTags: ["contacts"],
 		}),
 	}),
 });
