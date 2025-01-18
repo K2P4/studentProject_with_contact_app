@@ -72,7 +72,7 @@ const HomePage = () => {
 						</div>
 
 						<div className="w-full">
-							<SheetContent  onClose={handleClose}>
+							<SheetContent onClose={handleClose}>
 								<SheetHeader>
 									<SheetTitle className="text-sm text-left sm:text-base">
 										Contact Information
@@ -84,7 +84,10 @@ const HomePage = () => {
 										: "You Can Create Contact Infomation Here ..."}
 								</SheetDescription>
 
-								<FormTool handleClose={handleClose} editData={editData} />
+								<FormTool
+									handleClose={handleClose}
+									editData={editData}
+								/>
 							</SheetContent>
 						</div>
 
