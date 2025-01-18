@@ -33,10 +33,12 @@ const SignupPage = () => {
 
 
 	const handleSubmit = async (value) => {
-	
-		await fun(value);
-		if (data.isSuccess) {
+		const response = await fun(value);
+		
+		if (response.data.success) {
 			nav("/");
+		}else {
+			alert('Try again !')
 		}
 	};
 
