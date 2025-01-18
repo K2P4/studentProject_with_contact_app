@@ -29,7 +29,7 @@ const HomePage = () => {
 	const [editData, setEditData] = useState({ edit: false, data: null });
 
 	const handleEdit = (id) => {
-		const finder = data?.contacts?.data.find((item) => item?.id == id);
+		const finder = data?.contacts?.find((item) => item?.id == id);
 		setEditData({ edit: true, data: finder });
 	};
 
@@ -88,17 +88,17 @@ const HomePage = () => {
 							</SheetContent>
 						</div>
 
-						{data?.contacts?.data.length == 0 && (
+						{data?.contacts?.length == 0 && (
 							<div className="">
 								<EmptyLottie />
 							</div>
 						)}
 
-						{data?.contacts?.data.length > 0 && (
+						{data?.contacts?.length > 0 && (
 							<div className="sm:w-[80%] w-[95%] mx-auto mt-16 sm:mt-10">
 								<DataTableTool
 									handleEdit={handleEdit}
-									apiData={data?.contacts?.data}
+									apiData={data?.contacts}
 								/>
 							</div>
 						)}
